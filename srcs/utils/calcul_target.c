@@ -6,7 +6,7 @@
 /*   By: tnolent <tnolent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 11:24:28 by tnolent           #+#    #+#             */
-/*   Updated: 2025/01/21 12:11:49 by tnolent          ###   ########.fr       */
+/*   Updated: 2025/01/22 16:40:34 by tnolent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ void calcul_target(t_list *pile_a, t_list *pile_b)
 	while (actuel_a != NULL)
 	{
 		actuel_b = pile_b->premier;
-		tmp_min = pile_a->smallest;
+		if (pile_a->smallest < pile_b->smallest)
+			tmp_min = pile_a->smallest;
+		else
+			tmp_min = pile_b->smallest;
 		while (actuel_b != NULL)
 		{
 			if (actuel_a->nombre < pile_b->smallest->nombre)

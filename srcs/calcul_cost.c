@@ -6,7 +6,7 @@
 /*   By: tnolent <tnolent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 14:55:27 by tnolent           #+#    #+#             */
-/*   Updated: 2025/01/21 14:52:20 by tnolent          ###   ########.fr       */
+/*   Updated: 2025/01/22 16:40:50 by tnolent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,31 @@ int calculate_cost(t_list *pile_a, t_list *pile_b)
 	while (actuel_a != NULL)
 	{
 		actuel_a->cost = 0;
+		calculate_position(pile_a, pile_b);
 		while (actuel_a->position != 0 && actuel_a->target->position != 0)
 		{
-			calculate_position(pile_a, pile_b);
 			if (actuel_a->position <= mediane_a)
 			{
+				actuel_a->cost = actuel_a->position;
 				if (actuel_b->position <= mediane_b)
-					actuel_a->cost += 1;
-				break ;
+				{
+					if (actuel_a->position == actuel_a->target->position || actuel_a->position > actuel_a->target->position)
+						break;
+					else if (actuel_a->position > actuel_a->target->position)
+					{
+						actuel_a->cost = actuel_a->target->nombre;
+						break;
+					}
+				}
 			}
-			else
-				break ;
+			if (actuel_a->position > mediane_a)
+			{
+					
+			}
+			break ;
 		}
-		printf("number : %d, position : %d\n", actuel_a->nombre, actuel_a->position);
+		printf("cost nb : %d = %d\n", actuel_a->nombre, actuel_a->cost);
+		printf("number : %d, position : %d, target : %d\n", actuel_a->nombre, actuel_a->position, actuel_a->target->nombre);
 		actuel_a = actuel_a->suivant;
 	}
 	return (0);

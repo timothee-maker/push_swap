@@ -27,8 +27,8 @@ int push_swap(t_list *pile_a, t_list *pile_b)
 			handle_3_element(pile_a);
 		else if (pile_a->nb_iter++ == 0)
 		{
-			pb(pile_a, pile_b);
-			pb(pile_a, pile_b);
+			for (int i = 0; i < 5; i++)
+				pb(pile_a, pile_b);
 			algo_ps(pile_a, pile_b);
 		}
 		break ;
