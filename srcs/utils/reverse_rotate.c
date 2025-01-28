@@ -6,7 +6,7 @@
 /*   By: tnolent <tnolent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:23:20 by tnolent           #+#    #+#             */
-/*   Updated: 2025/01/21 15:44:00 by tnolent          ###   ########.fr       */
+/*   Updated: 2025/01/28 18:59:40 by tnolent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void rrr(t_list *pile_a, t_list *pile_b)
 	tmp->suivant = pile_b->premier;
 	pile_b->premier = tmp;
 	tmp = actuel->suivant;
-	pile_b->nb_iter += 1;
+	pile_a->nb_iter += 1;
 
 	ft_printf("rrr\n");
 }

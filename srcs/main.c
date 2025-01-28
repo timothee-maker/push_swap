@@ -21,8 +21,6 @@ int main(int ac, char **av)
 {
 	t_list 	*pile_a;
 	t_list 	*pile_b;
-	char	**result_split;
-	int		i;
 
 	pile_a = initialisation();
 	pile_b = initialisation();

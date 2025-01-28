@@ -6,7 +6,7 @@
 /*   By: tnolent <tnolent@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 14:34:24 by timothee          #+#    #+#             */
-/*   Updated: 2025/01/21 12:51:39 by tnolent          ###   ########.fr       */
+/*   Updated: 2025/01/28 19:07:16 by tnolent          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_list
 {
 	int			nb_element;
 	int			nb_iter;
+	int			mediane;
+	t_element	*push_element;
 	t_element	*biggest;
 	t_element	*smallest;
 	t_element	*premier;
@@ -40,14 +42,17 @@ t_list	*initialisation();
 char	**ft_split(char const *s, char c);
 int     push_swap(t_list *pile_a, t_list *pile_b);
 int 	handle_3_element(t_list *pile_a);
+void	handle_a(t_list *pile_a);
 int 	liste_triee(t_list *pile_a, t_list *pile_b);
 int		algo_ps(t_list *pile_a, t_list *pile_b);
+void	push_element_back(t_list *pile_a, t_list *pile_b);
+void	end_algo(t_list *pile_a, t_list *pile_b);
 void	calcul_target(t_list *pile_a, t_list *pile_b);
-int		calculate_cost(t_list *pile_a, t_list *pile_b);
+void 	calcul_target_pile_a(t_list *pile_a, t_list *pile_b);
+void	calculate_cost(t_list *pile_a, t_list *pile_b);
 void	calculate_position(t_list *pile_a, t_list *pile_b);
 
 int		calculate_b_s(t_list *pile_a, t_list *pile_b);
-int		init_cost(t_list *pile_a);
 void	afficherListe(t_list *liste);
 void	insertion_d(t_list *liste, int nvNombre);
 void	insertion_f(t_list *liste, int nvNombre);
